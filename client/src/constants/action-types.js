@@ -1,0 +1,5 @@
+export const ActionTypes={
+    ALL_COUNTRIES:"ALL_COUNTRIES",
+    COUNTRY_DETAILS:"COUNTRY_DETAILS",
+    
+}
