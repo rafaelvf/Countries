@@ -17,7 +17,7 @@ function App() {
       <Route exact path="/countries" component={Container} />
       <Route exact path="/activity" component={activitiesForm} />
       <Route exact path="/countries/:ID" component={CountryDetail} /> {/* aqui va a tocar usar render en vez de component*/}
-      <Route>404 Not Found!</Route>
+      {/* <Route>404 Not Found!</Route> */}
     </div>    
   );
 }

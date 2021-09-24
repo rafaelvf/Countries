@@ -30,16 +30,16 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
             population:i.population
             }
         })
-        
+        console.log(countriesArray.length)
         for (const i of countriesArray) {//for of se usa porque no se lleva con await. aqui estamos poblando la base de datos.
             
             const countries = await Country.create(i)
             
+            console.log(countries.dataValues)
         }
-        
             
         } catch (error) {
-    console.error(error);
+    //console.error(error);
     }
 }
 

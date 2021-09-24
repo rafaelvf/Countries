@@ -6,9 +6,7 @@ export function Container() {
   return (
     <header className="Container">
     <div>
-        <div>
-            <Paginado />
-        </div>
+        
 
         <div>
             <CardContainer />
