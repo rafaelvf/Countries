@@ -12,13 +12,16 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
         const countriesBD= response.data;//response.data pq nos tira un json en el data
         
         var capital="no tiene capital"
+        var continent="no tiene continente"
         const countriesArray= countriesBD.map(i=>{//me esta devolviendo array con todos esos objetos
             
             if(i.capital){
-                capital=i.capital;
-                
+                capital=i.capital;             
 
             } 
+            else if(i.continent){
+                continent=i.continent;
+            }
             return {
             ID:i.alpha3Code,//izq es base de datos derecha es el api
             name:i.name,
@@ -35,11 +38,11 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
             
             const countries = await Country.create(i)
             
-            console.log(countries.dataValues)
+            // console.log(countries.dataValues)
         }
             
         } catch (error) {
-    //console.error(error);
+    console.error(error);
     }
 }
 
@@ -50,7 +53,7 @@ router.get("/", async function(req,res){//aqui la barra esta sin el countries po
 
     if(!name){
         const simplifiedCountry= await Country.findAll({//esta es la funcion promesa que nos sirve para filtrar solo los atributos que necesitemos y poder usarlos para enviarlos por el res.json
-            attributes: ['flag', 'name','continent','ID']
+            attributes: ['flag', 'name','continent','ID','population']
         }
         );
     

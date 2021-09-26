@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import Card from "./Card";
-import {connect} from "react-redux";
+import {connect,useSelector} from "react-redux";
 import { getAll } from '../actions/actions';
 import Paginado from './Paginado';
 
@@ -9,17 +9,19 @@ import Paginado from './Paginado';
 export function CardContainer(props) {//props = {country:state.country[],getcountries:function}
   useEffect(()=>{props.getcountries()},[])//con useEffect estamos cargando el estado porque set esta ejecunta elgetcountries que tiene adentro el dispatch la action getall
   
-  const [currentPage,setCurrentPage]=useState(1);
-  const [postsPerPage,setPostsPerPage]=useState(9);
+  const {countries}=useSelector((state)=>state.allCountries)
 
-  const [pageNumberLimit,setpageNumberLimit]=useState(5);//cuantas numeros de pagina queremos display
-  const [maxPageNumberLimit,setmaxPageNumberLimit]=useState(5);
+  const [currentPage,setCurrentPage]=useState(1);
+  const [postsPerPage]=useState(9);
+
+  const [pageNumberLimit]=useState(9);//cuantas numeros de pagina queremos display
+  const [maxPageNumberLimit,setmaxPageNumberLimit]=useState(9);
   const [minPageNumberLimit,setminPageNumberLimit]=useState(0);  
 
 
   const indexOfLastPost= currentPage*postsPerPage;
   const indexOfFirstPost=indexOfLastPost-postsPerPage;
-  const currentPosts=props.country.slice(indexOfFirstPost,indexOfLastPost)
+  const currentPosts=countries.slice(indexOfFirstPost,indexOfLastPost)
 
   const paginate =(pageNumber)=>setCurrentPage(pageNumber)
   const handleNextbtn=()=>{
@@ -43,7 +45,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
   return (
     <div>
     {
-    <Paginado postsPerPage={postsPerPage} totalPosts={props.country.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
+    <Paginado postsPerPage={postsPerPage} totalPosts={countries.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
     handleNextbtn={handleNextbtn} handlePrevbtn={handlePrevbtn}
     currentPage={currentPage}/>
     }
@@ -69,14 +71,15 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
 };
 
 
-function mapStateToProps(state){
-  return{
-      country:state.allCountries.countries//country se guarda lo que necesito del state del store
-  }
-}
+// function mapStateToProps(state){
+//   return{
+//       country:state.allCountries.countries,//country se guarda lo que necesito del state del store
+      
+//   }
+// }
 function mapDispatchToProps(dispatch){
 
   return{getcountries:()=>dispatch(getAll())}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CardContainer);
+export default connect(null,mapDispatchToProps)(CardContainer);

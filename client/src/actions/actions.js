@@ -24,6 +24,30 @@ export const getCountry=(term)=>{
     }
 }
 
+export const getContinent=(state)=>{
+
+    return {
+        type: ActionTypes.GET_CONTINENT,
+        payload:state
+    }
+}
+
+export const sortByAlphabet=(type)=>{
+
+        return {
+            type: ActionTypes.SORTBY_ALPHABET,
+            payload:type
+        }
+    }
+
+    export const sortByPopulation=(population)=>{
+
+        return {
+            type: ActionTypes.SORTBY_POPULATION,
+            payload:population
+        }
+    }
+
 
 
 //     return {

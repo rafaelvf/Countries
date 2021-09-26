@@ -6,7 +6,7 @@ module.exports = (sequelize) => {//estoy exportando una funcion
   sequelize.define('country', {
     ID:{//como hago para que el id tenga tres letras
       primaryKey:true,
-      type:DataTypes.STRING,
+      type:DataTypes.STRING(3),
       allowNull:false
     },
     name: {
@@ -14,16 +14,16 @@ module.exports = (sequelize) => {//estoy exportando una funcion
       allowNull: false,
     },
     flag:{
-      allowNull:false,
       type:DataTypes.STRING,//me queda la duda
+      allowNull:false,
     },
     continent:{
-      allowNull:false,
       type:DataTypes.STRING,
+      allowNull:false,
     },
     capital:{
+      type:DataTypes.STRING,
       allowNull:false,
-      type:DataTypes.STRING
     },
     subregion:{
       type:DataTypes.STRING

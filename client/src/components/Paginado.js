@@ -38,7 +38,9 @@ export function Paginado({postsPerPage,totalPosts, paginate,minPageNumberLimit,m
         return null;
       }
     })}
-    <button onClick={handleNextbtn} >
+    <button onClick={handleNextbtn}
+    disabled={currentPage===pageNumbers[pageNumbers.length-1]?true:false}
+    >
       Next
     </button>
     </div>

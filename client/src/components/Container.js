@@ -1,12 +1,25 @@
 import React from 'react';
-import Paginado from './Paginado';
+
+import FilterBy from "./FilterBy";
 import CardContainer from "./CardContainer";
+import SortBy from './SortBy';
+import SortByPopulation from './SortByPopulation';
 
 export function Container() {
   return (
     <header className="Container">
     <div>
-        
+        <div>
+          <FilterBy />
+        </div>
+        <div>
+          <SortBy type={"A-Z"} />
+          <SortBy type={"Z-A"}/>
+        </div>
+        <div>
+          <SortByPopulation population={"ASC"} />
+          <SortByPopulation population={"DSC"}/>
+        </div>
 
         <div>
             <CardContainer />
