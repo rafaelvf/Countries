@@ -9,7 +9,7 @@ export function Container() {
   return (
     <header className="Container">
     <div>
-        <div>
+        <div className="filter">
           <FilterBy />
         </div>
         <div>

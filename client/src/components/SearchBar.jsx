@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {connect} from "react-redux";
 import {  getCountry, getAll } from '../actions/actions';
+import "../css/SearchBar.css";
 
 export function SearchBar(props) {
     const [term,setTerm]=useState("");
@@ -14,8 +15,8 @@ export function SearchBar(props) {
     }
 
 return (    
-    <div>
-    <form onSubmit={submitHandler}>
+    <div className="divsearchbar">
+    <form onSubmit={submitHandler} className="searchbar">
     <input type="search" value={term} placeholder="Search by country  ..." onChange={(e)=>setTerm(e.target.value)} />
     <button type="submit">Search</button>
     </form>

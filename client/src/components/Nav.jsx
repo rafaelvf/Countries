@@ -2,22 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
 import fotohome from "../img/fotohome.jpg";
+import "../css/Nav.css"
 
 export function Nav() {
   return (
     <header className="navbar">
       <div>
-        <div>
-    <Link to="/countries">
-      <img src={fotohome} alt="Home" width="50" height="60" />
-     </Link> 
+        <div className="fotohome">
+          <Link to="/countries">
+          <img src={fotohome} alt="Home" className="foto" />
+          </Link> 
         </div>
     
-    <SearchBar country={"country"} />
+        <SearchBar country={"country"} className="searchbar"/>
 
-    <Link to="/activity">
-      Creacion de actividades
-     </Link> 
+        <Link to="/activity">
+          Creacion de actividades
+        </Link> 
       </div>
     
     </header>

@@ -2,7 +2,8 @@ import { ActionTypes } from "../constants/action-types"
 
 const initialState ={
     countries:[],
-    everyCountry:[]
+    everyCountry:[],
+    countryDetail:{}
 }
 
 export const reducer = (state=initialState,action)=>{
@@ -40,7 +41,11 @@ export const reducer = (state=initialState,action)=>{
                     return{...state,
                         countries:state.countries.sort((a,b)=>b.population - a.population)
                     }
-                }    
+                }  
+                case ActionTypes.COUNTRYBY_ID:
+                    return{...state,
+                        countryDetail:action.payload
+                    } 
         default:
             return state;
     }

@@ -48,6 +48,16 @@ export const sortByAlphabet=(type)=>{
         }
     }
 
+    export const getCountryDetail=(id)=>{
+    
+        return async function (dispatch){
+            const res= await axios.get(`http://localhost:3001/countries/${id}`);
+        dispatch({
+            type: ActionTypes.COUNTRYBY_ID,
+            payload: res.data,
+        })
+        }}
+
 
 
 //     return {

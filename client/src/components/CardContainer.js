@@ -4,6 +4,7 @@ import Card from "./Card";
 import {connect,useSelector} from "react-redux";
 import { getAll } from '../actions/actions';
 import Paginado from './Paginado';
+import "../css/CardContainer.css"
 
 
 export function CardContainer(props) {//props = {country:state.country[],getcountries:function}

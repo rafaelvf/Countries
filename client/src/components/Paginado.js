@@ -10,7 +10,7 @@ export function Paginado({postsPerPage,totalPosts, paginate,minPageNumberLimit,m
   }
 
   return(
-    <div>
+    <div className="paginado">
       <button onClick={handlePrevbtn}
       disabled={currentPage===pageNumbers[0]?true:false}
       >
