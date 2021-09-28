@@ -20,7 +20,7 @@ export function CountryDetail(props) {
             <p>Subregion: {countryDetail.subregion}</p>
             <p>Area: {countryDetail.area} km2</p>
             <p>Population: {countryDetail.population}</p>
-            <p>Tourist activity: {countryDetail.ID}</p>
+            <p>Tourist activity: {countryDetail.activities.map(i=>i.name+" ")}</p>
     </div>
   )
 };

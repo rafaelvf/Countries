@@ -9,7 +9,7 @@ router.post("/", async function(req,res){
     const {ID, name, dificulty, duration, season,countries } = req.body;
     console.log(req.body)
 
-    const nuevaActividad= await Activity.findOrCreate({
+    const [nuevaActividad,created]= await Activity.findOrCreate({
         where:{
             // ID: ID,
             name: name,
@@ -18,6 +18,18 @@ router.post("/", async function(req,res){
             season:season
         }
     })
+
+    console.log(nuevaActividad)
+    for(const i of countries){
+    const country= await Country.findOne({
+        where:{
+            name:i
+        }
+    })
+    // nuevaActividad.addCountry(country)
+    country.addActivity(nuevaActividad)
+}
+    
 
     res.json(nuevaActividad);
 

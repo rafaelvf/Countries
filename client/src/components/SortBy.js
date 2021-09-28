@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import { sortByAlphabet } from '../actions/actions';
-
+import "../css/Sortby.css";
 
 export function SortBy(props){
     
@@ -13,7 +13,7 @@ export function SortBy(props){
 
     return(
         
-        <div>
+        <div className="sortaz">
         <button onClick={(e)=>handleOnClick(e)}>{props.type}</button>    
         </div>
         

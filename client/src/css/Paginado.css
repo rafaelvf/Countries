@@ -8,6 +8,7 @@
     cursor: pointer;
 }
 .paginado{
-    display:flex;
-    
+    display:inline-flex;
+    position: relative;
+    right: 30px;
 }

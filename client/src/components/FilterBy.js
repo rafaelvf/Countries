@@ -13,7 +13,7 @@ export function FilterBy(props) {
 
 
 return (    
-    <div>
+    <div className="filt">
         <div className="filtercontinet">
             Filter by continent
             <select  onChange={change}>

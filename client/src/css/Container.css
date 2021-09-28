@@ -1,0 +1,13 @@
+.Container{
+    background-color: rgb(189, 189, 189);
+}
+.alfab{
+    display: inline;
+    position: relative;
+    left: -290px;
+}
+.popu{
+    display: inline;
+    position: relative;
+    left: -270px;
+}

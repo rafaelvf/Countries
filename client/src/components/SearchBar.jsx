@@ -20,7 +20,7 @@ return (
     <input type="search" value={term} placeholder="Search by country  ..." onChange={(e)=>setTerm(e.target.value)} />
     <button type="submit">Search</button>
     </form>
-    <button onClick={(e)=>handleReset(e)}>
+    <button onClick={(e)=>handleReset(e)} className="botonreset">
         Reset all countries
     </button>
     </div>

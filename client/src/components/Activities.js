@@ -1,37 +1,27 @@
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
+
 import {useSelector} from "react-redux";
 import axios from "axios";
 
 
 export function ActivitiesForm() {
   const {everyCountry}=useSelector((state)=>state.allCountries)
-  const [state,setState]=useState({name:"",dificulty:"",duration:"",season:"",countries:""})
+  const [state,setState]=useState({name:"",dificulty:"",duration:"",season:"",countries:[]})
 
 
   // const arraySelected=[]
   // function selected(e){
   //   arraySelected.push(e.target.value)
   // }
+  console.log(state)
   function handleInputChange(event){
     setState({...state,[event.target.name]:event.target.value})
   }
-//   const prueba ={name:"correr",
-//                 dificulty:"1" ,
-//                 duration:"12",   
-//                 season:"winter",              
-// }
-  // function handleSubmit(i){
-  //   i.preventDefault();
+  function handleChange(event){
+    setState({...state,[event.target.name]:[...state.countries,event.target.value]})
+  }
 
-  //   fetch("http://localhost:3001/activity",{
-  //     method:'POST',
-  //     headers:{"Content-Tupe":"application/json"},
-  //     body: JSON.stringify(prueba)
-  //   }).then(()=>{
-  //     console.log("new activity added")
-  //   })
-  // }
+
   async function handleSubmit(i){
     i.preventDefault();
 
@@ -69,7 +59,7 @@ export function ActivitiesForm() {
             </select><br/>
             <label>Select countries</label>
             
-              <select onChange={handleInputChange} name="countries" multiple>
+              <select onChange={handleChange} name="countries" multiple>
             {everyCountry.map(i=>(
               <option value={i.name}>{i.name}</option>))}
               </select><br/>

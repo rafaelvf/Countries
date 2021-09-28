@@ -45,11 +45,11 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
 
   return (
     <div>
-    {
+    {/* {
     <Paginado postsPerPage={postsPerPage} totalPosts={countries.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
     handleNextbtn={handleNextbtn} handlePrevbtn={handlePrevbtn}
     currentPage={currentPage}/>
-    }
+    } */}
 
     <div className="cardcontainer">
     
@@ -57,7 +57,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
 
     
       return (
-        <div key={i.ID}> {/* para que cada card tenga una id en el navegador, y no moeleste la consola del navegador */}
+        <div key={i.ID} className="j"> {/* para que cada card tenga una id en el navegador, y no moeleste la consola del navegador */}
           <Link to={`/countries/${i.ID}`}>
           <Card country={i.name} flag={i.flag} continent={i.continent} />
           </Link>
@@ -67,6 +67,11 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
     })}
     
     </div>
+    {
+    <Paginado postsPerPage={postsPerPage} totalPosts={countries.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
+    handleNextbtn={handleNextbtn} handlePrevbtn={handlePrevbtn}
+    currentPage={currentPage}/>
+    }
     </div>
   )
 };

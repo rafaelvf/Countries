@@ -1,5 +1,11 @@
 .cardcontainer{
     display:flex;
+    flex-wrap: wrap;
 
     
+}
+.j{
+    background-color: brown;
+    width: 180px;
+    padding: 10px;
 }

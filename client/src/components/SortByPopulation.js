@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import { sortByPopulation } from '../actions/actions';
-
+import "../css/Sortbypopulation.css";
 
 export function SortByPopulation(props){
     
@@ -13,7 +13,7 @@ export function SortByPopulation(props){
 
     return(
         
-        <div>
+        <div className="sortbypop">
         <button onClick={(e)=>handleOnClick(e)}>{props.population}</button>    
         </div> 
         

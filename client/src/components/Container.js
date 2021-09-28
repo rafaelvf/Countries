@@ -1,10 +1,10 @@
 import React from 'react';
-
 import FilterBy from "./FilterBy";
 import CardContainer from "./CardContainer";
 import SortBy from './SortBy';
 import SortByPopulation from './SortByPopulation';
-
+import "../css/Container.css";
+import "../css/filter.css";
 export function Container() {
   return (
     <header className="Container">
@@ -12,11 +12,13 @@ export function Container() {
         <div className="filter">
           <FilterBy />
         </div>
-        <div>
+        <div className="alfab">
+          Sort by alphabetical order:
           <SortBy type={"A-Z"} />
           <SortBy type={"Z-A"}/>
         </div>
-        <div>
+        <div className="popu">
+        Sort by alphabetical order:
           <SortByPopulation population={"ASC"} />
           <SortByPopulation population={"DSC"}/>
         </div>

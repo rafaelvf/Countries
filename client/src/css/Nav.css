@@ -5,7 +5,7 @@
 }
 .fotohome{
     position:relative;
-    left:-200px;
+    left:-375px;
     display: inline-flex;
     padding-left: 10px;
     padding-top: 10px;
@@ -17,10 +17,28 @@
     width: 40%;
     border-radius: 8px;
 }
-.searchbar{
+.searchbar{    
     display: inline;
     position:relative;
-    left: -100px;
-    bottom: 70px;
+    left: -400px;
+    bottom: 100px;
     border-radius: 8px;
+}
+.botonreset{
+    position: relative;
+    left: -380px;
+    bottom: 100px;
+}
+.divsearchbar{
+    display: inline;
+    
+}
+.creacion{
+    position: relative;
+    bottom: 100px;
+}
+.fotoAc{
+    position: relative;
+    top:75px;
+    height: 125px;
 }

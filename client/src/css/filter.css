@@ -1,3 +1,11 @@
 .filter{
     display: inline;
+    position:relative;
+    left: -350px;
+}
+.filtercontinet{
+    display: inline;
+}
+.filt{
+    display: inline;
 }

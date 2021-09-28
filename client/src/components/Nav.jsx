@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
 import fotohome from "../img/fotohome.jpg";
+import form from "../img/form.png";
 import "../css/Nav.css"
 
 export function Nav() {
@@ -15,9 +16,9 @@ export function Nav() {
         </div>
     
         <SearchBar country={"country"} className="searchbar"/>
-
-        <Link to="/activity">
-          Creacion de actividades
+        
+        <Link to="/activity" className="creacion">
+        <img src={form} alt="Activity form" className="fotoAc" />
         </Link> 
       </div>
     

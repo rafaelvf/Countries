@@ -2,33 +2,33 @@ const router = require('express').Router();
 const axios = require("axios");
 const {Sequelize}=require("sequelize")
 const Op= Sequelize.Op
-
+const countries = require("../../countries.json")
 const {Country, Activity} = require("../db.js");//deberia funcionar
 
 
 async function getCountries() {//empezamos la funcion para hacer el pedido a la api. la vamos a hacer con axios.
     try {
-    const response = await axios.get('https://restcountries.com/v2/all');//el response ya es un json...el await es pq me tira una promesa
-        const countriesBD= response.data;//response.data pq nos tira un json en el data
-        
-        var capital="no tiene capital"
-        var continent="no tiene continente"
-        const countriesArray= countriesBD.map(i=>{//me esta devolviendo array con todos esos objetos
+    // const response = await axios.get('../../countries.json');//el response ya es un json...el await es pq me tira una promesa
+    //     const countriesBD= response.data;//response.data pq nos tira un json en el data
+    //     console.log(countriesBD)
+        // var capital="no tiene capital"
+        // var continent="no tiene continente"
+        const countriesArray= countries.map(i=>{//me esta devolviendo array con todos esos objetos
             
-            if(i.capital){
-                capital=i.capital;             
+            // if(i.capital){
+            //     capital=i.capital;             
 
-            } 
-            else if(i.continent){
-                continent=i.continent;
-            }
+            // } 
+            // else if(i.continent){
+            //     continent=i.continent;
+            // }
             return {
             ID:i.alpha3Code,//izq es base de datos derecha es el api
             name:i.name,
-            flag:i.flags[0],
-            continent:i.continent,
-            capital:capital,
-            subregion:i.region,
+            flag:i.flag,
+            continent:i.region,
+            capital:i.capital,
+            subregion:i.subregion,
             area:i.area,
             population:i.population
             }
@@ -53,7 +53,8 @@ router.get("/", async function(req,res){//aqui la barra esta sin el countries po
 
     if(!name){
         const simplifiedCountry= await Country.findAll({//esta es la funcion promesa que nos sirve para filtrar solo los atributos que necesitemos y poder usarlos para enviarlos por el res.json
-            attributes: ['flag', 'name','continent','ID','population']
+            attributes: ['flag', 'name','continent','ID','population'],
+            include:{model:Activity}
         }
         );
     
@@ -80,7 +81,15 @@ router.get("/:idPais", async function(req,res){//estamos haciendo el endpoint pa
     const countryDetailed= await Country.findOne({
         where:{
             ID:idPais.toUpperCase(),
-        }
+        },
+        include: [{
+            model: Activity,
+            // attributes: ['name'],
+            through: {
+            attributes: []
+            }
+        }] 
+
     })
 
     res.json(countryDetailed)
