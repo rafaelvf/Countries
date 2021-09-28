@@ -32,6 +32,14 @@ export const getContinent=(state)=>{
     }
 }
 
+export const getActivity=(state)=>{
+
+    return {
+        type: ActionTypes.GET_ACTIVITY,
+        payload:state
+    }
+}
+
 export const sortByAlphabet=(type)=>{
 
         return {

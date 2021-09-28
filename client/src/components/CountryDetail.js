@@ -8,6 +8,7 @@ export function CountryDetail(props) {
   const {countryDetail}=useSelector((state)=>state.allCountries)
   const {ID}=useParams();
   useEffect(()=>{props.getCountryDetail(ID)},[])
+  
   return (
     <div>
             <img src={countryDetail.flag} alt={`Flag of ${countryDetail.country}`} className="Cardimage" />
@@ -20,9 +21,11 @@ export function CountryDetail(props) {
             <p>Subregion: {countryDetail.subregion}</p>
             <p>Area: {countryDetail.area} km2</p>
             <p>Population: {countryDetail.population}</p>
-            <p>Tourist activity: {countryDetail.activities.map(i=>i.name+" ")}</p>
+            
+            {countryDetail.activities?<p>Tourist activity: {countryDetail.activities.map(i=>i.name+" ")}</p>:null}
     </div>
   )
+  
 };
 
 

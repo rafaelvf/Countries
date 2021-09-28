@@ -46,6 +46,21 @@ export const reducer = (state=initialState,action)=>{
                     return{...state,
                         countryDetail:action.payload
                     } 
+        case ActionTypes.GET_ACTIVITY:
+            const activityFilter = [];
+            state.everyCountry.map(i=>{
+                if(i.activities){
+                    for(const e of i.activities){
+                        if(e.name===action.payload){
+                            activityFilter.push(i)
+                            return activityFilter
+                        }
+                    }
+                }}
+                )
+                return{...state,
+                        countries:activityFilter
+                        }            
         default:
             return state;
     }

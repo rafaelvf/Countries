@@ -5,6 +5,8 @@ import SortBy from './SortBy';
 import SortByPopulation from './SortByPopulation';
 import "../css/Container.css";
 import "../css/filter.css";
+import FilterByActivities from './FilterByActivities';
+
 export function Container() {
   return (
     <header className="Container">
@@ -12,6 +14,11 @@ export function Container() {
         <div className="filter">
           <FilterBy />
         </div>
+
+        <div className="filteractivities">
+          <FilterByActivities />
+        </div>
+        
         <div className="alfab">
           Sort by alphabetical order:
           <SortBy type={"A-Z"} />
