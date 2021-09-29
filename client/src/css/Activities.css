@@ -1,0 +1,13 @@
+.activities{
+    background-color: rgb(150, 148, 147);
+    height: 500px;
+}
+.act{
+    border-style: solid;
+    border-width: 10px;
+    background-color: turquoise;
+    width: 500px;
+    height: 300px;
+    position: relative;
+    left:450px;
+}

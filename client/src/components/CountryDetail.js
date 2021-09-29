@@ -10,7 +10,7 @@ export function CountryDetail(props) {
   useEffect(()=>{props.getCountryDetail(ID)},[])
   
   
-  return countryDetail && countryDetail.length? (
+  return countryDetail && Object.keys(countryDetail).length ? (
     <div className="carddetail">
             <img src={countryDetail.flag} alt={`Flag of ${countryDetail.country}`} className="Cardimage" />
             <br/>
@@ -23,7 +23,7 @@ export function CountryDetail(props) {
             <p>Area: {countryDetail.area} km2</p>
             <p>Population: {countryDetail.population}</p>
             
-            {countryDetail.activities?<p>Tourist activity: {countryDetail.activities.map(i=>i.name+" ")}</p>:null}
+            {countryDetail.activities?<p> {countryDetail.activities.map(i=>"Activity:"+i.name+" " + "Duration:"+i.duration+" "+"Difficulty:"+i.dificulty+" "+"Season:"+i.season+" |||| ")}</p>:null}
     </div>
   ):<p>The country does not exist</p>
   

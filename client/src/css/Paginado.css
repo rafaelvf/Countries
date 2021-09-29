@@ -3,12 +3,21 @@
     display: flex;
 }
 .pagination li{
-    padding: 4px;
+    height: 30px;
+    width: 20px;
+    border-radius: 2px;
     border: 1px solid rgb(43, 41, 41);
     cursor: pointer;
+    background-color: turquoise;
 }
 .paginado{
     display:inline-flex;
     position: relative;
     right: 30px;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 2px;
 }
+/* .pag{
+    width: 40px;
+} */

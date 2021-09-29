@@ -20,7 +20,7 @@ export function Paginado({postsPerPage,totalPosts, paginate,minPageNumberLimit,m
       if(number<maxPageNumberLimit+1 && number>minPageNumberLimit){
 
         return (
-          <div>
+          <div className="pag">
           <ul className="pagination">      
                   <li key={number}>
                 <a onClick={()=>paginate(number)}  className="page-link">{/*onclick va a cambiar el estado pq se ejecuta paginate */}

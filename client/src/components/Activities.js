@@ -1,13 +1,12 @@
 import React,{useState} from 'react';
-
 import {useSelector} from "react-redux";
 import axios from "axios";
-
+import "../css/Activities.css";
 
 export function ActivitiesForm() {
   const {everyCountry}=useSelector((state)=>state.allCountries)
   const [state,setState]=useState({name:"",dificulty:"",duration:"",season:"",countries:[]})
-
+  const [error,setError]=useState({})
 
   // const arraySelected=[]
   // function selected(e){
@@ -25,13 +24,14 @@ export function ActivitiesForm() {
   async function handleSubmit(i){
     i.preventDefault();
     let res= await axios.post("http://localhost:3001/activity",state)
-    alert("Tu actividad ha sido creada con exito!")
+    alert("Your activity has been created!")
     
     console.log(res.data)
   }
 
   return (
-    <header className="navbar">
+    <header className="activities">
+      <div className="act">
       <h1>Create an Activity!</h1>
       <div>
       <form onSubmit={(i)=>handleSubmit(i)}>
@@ -70,7 +70,8 @@ export function ActivitiesForm() {
 
       <button className="activityButton" type="submit">Create</button>
       </form>
-      </div>    
+      </div>   
+      </div> 
     </header>
   )
 };
