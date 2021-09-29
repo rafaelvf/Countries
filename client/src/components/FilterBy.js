@@ -15,7 +15,7 @@ export function FilterBy(props) {
 return (    
     <div className="filt">
         <div className="filtercontinet">
-            Filter by continent
+            <span className="filte"> Filter by continent</span>  
             <select  onChange={change}>
                 <option value="All">All</option>
                 <option value="Americas">Americas</option>

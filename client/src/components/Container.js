@@ -11,6 +11,7 @@ export function Container() {
   return (
     <header className="Container">
     <div>
+      <div className="box">
         <div className="filter">
           <FilterBy />
         </div>
@@ -20,16 +21,16 @@ export function Container() {
         </div>
         
         <div className="alfab">
-          Sort by alphabetical order:
+          <span className="sor"> Sort by alphabetical order</span>
           <SortBy type={"A-Z"} />
           <SortBy type={"Z-A"}/>
         </div>
         <div className="popu">
-        Sort by alphabetical order:
+        <span className="sorp"> Sort by population size</span>
           <SortByPopulation population={"ASC"} />
           <SortByPopulation population={"DSC"}/>
         </div>
-
+      </div>
         <div>
             <CardContainer />
         </div>

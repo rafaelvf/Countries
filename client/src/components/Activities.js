@@ -24,8 +24,8 @@ export function ActivitiesForm() {
 
   async function handleSubmit(i){
     i.preventDefault();
-
     let res= await axios.post("http://localhost:3001/activity",state)
+    alert("Tu actividad ha sido creada con exito!")
     
     console.log(res.data)
   }

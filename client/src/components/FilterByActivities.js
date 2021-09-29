@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {connect,useSelector} from "react-redux";
 import {  getActivity } from '../actions/actions';
+import "../css/filteractivities.css";
 
 export function FilterByActivities(props) {
     const {everyCountry}=useSelector((state)=>state.allCountries)
@@ -11,17 +12,21 @@ export function FilterByActivities(props) {
     }
     console.log(everyCountry)
 
+    const a=[];
+
 return (    
     <div className="filter">
         <div className="filteractivity">
-            Filter by Activities
+        <span className="filterr">Filter by Activities </span>
             <select  onChange={change}>
                 
-                {everyCountry.map(i=>{
+                {
+                everyCountry.map(i=>{
                     if(i.activities){
                         for(const e of i.activities){
-
-                return <option value={e.name}>{e.name}</option>}}
+                        if(!a.includes(e.name)){
+                            a.push(e.name)
+                return <option value={e.name}>{e.name}</option>}}}
                         }
                 )
                 }

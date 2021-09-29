@@ -4,10 +4,20 @@
 .alfab{
     display: inline;
     position: relative;
-    left: -290px;
+    left: -220px;
 }
 .popu{
     display: inline;
     position: relative;
-    left: -270px;
+    left: 10px;
+}
+.box{
+    /* border-style: solid; */
+    border-bottom: solid;
+    border-color: rgb(29, 26, 26);
+    padding-bottom: 5px;
+}
+.sor, .sorp{
+    position: relative;
+    left: -5px;
 }

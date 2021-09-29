@@ -43,7 +43,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
     }
   }
 
-  return (
+  return currentPosts && currentPosts.length?(
     <div>
     {/* {
     <Paginado postsPerPage={postsPerPage} totalPosts={countries.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
@@ -73,7 +73,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
     currentPage={currentPage}/>
     }
     </div>
-  )
+  ):<p>The country does not exist!</p>
 };
 
 

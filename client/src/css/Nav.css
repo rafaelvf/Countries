@@ -5,7 +5,7 @@
 }
 .fotohome{
     position:relative;
-    left:-375px;
+    left:-190px;
     display: inline-flex;
     padding-left: 10px;
     padding-top: 10px;
@@ -20,25 +20,39 @@
 .searchbar{    
     display: inline;
     position:relative;
-    left: -400px;
-    bottom: 100px;
+    left: -320px;
+    bottom: 50px;
     border-radius: 8px;
+    width: 400px;
 }
 .botonreset{
     position: relative;
-    left: -380px;
-    bottom: 100px;
+    left: -300px;
+    bottom: 50px;
 }
 .divsearchbar{
     display: inline;
-    
+    position: relative;
+    width: 400px;
 }
 .creacion{
     position: relative;
+    right: 50px;
     bottom: 100px;
 }
 .fotoAc{
     position: relative;
     top:75px;
     height: 125px;
+}
+.titles{
+    color: rgb(15, 71, 66);
+    width: 1000px;
+    position: relative;
+    top:-100px;
+    left:-30px;
+}
+.formcreation{
+    position: relative;
+    right: -120px;
 }

@@ -1,16 +1,17 @@
 import React,{useEffect} from 'react';
-
 import { connect, useSelector } from 'react-redux';
 import { getCountryDetail } from '../actions/actions';
 import { useParams } from 'react-router';
+import "../css/CountryDetail.css";
 
 export function CountryDetail(props) {
   const {countryDetail}=useSelector((state)=>state.allCountries)
   const {ID}=useParams();
   useEffect(()=>{props.getCountryDetail(ID)},[])
   
-  return (
-    <div>
+  
+  return countryDetail && countryDetail.length? (
+    <div className="carddetail">
             <img src={countryDetail.flag} alt={`Flag of ${countryDetail.country}`} className="Cardimage" />
             <br/>
             <h2>{countryDetail.name}</h2>
@@ -24,7 +25,7 @@ export function CountryDetail(props) {
             
             {countryDetail.activities?<p>Tourist activity: {countryDetail.activities.map(i=>i.name+" ")}</p>:null}
     </div>
-  )
+  ):<p>The country does not exist</p>
   
 };
 
