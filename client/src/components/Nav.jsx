@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
 import fotohome from "../img/fotohome.jpg";
 import form from "../img/form.png";
-import cou from "../img/cou.png";
+
 import "../css/Nav.css"
 
 export function Nav() {
@@ -16,10 +16,10 @@ export function Nav() {
           </Link> 
         </div>
         
-        <span className="titles">Countries of the world</span>
+        <h1 className="titles">Countries of the world</h1>
         <SearchBar country={"country"} className="searchbar"/>
         
-        <span className="formcreation">Click on the form to create activity</span>
+        <span className="formcreation">Click on the form for activity</span>
         <Link to="/activity" className="creacion">
         <img src={form} alt="Activity form" className="fotoAc" />
         </Link> 

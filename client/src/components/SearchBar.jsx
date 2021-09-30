@@ -15,7 +15,7 @@ export function SearchBar(props) {
     }
 
 return (    
-    <div className="divsearchbar">
+    <div className="divsearchbar" >
     <form onSubmit={submitHandler} className="searchbar">
     <input type="search" value={term} placeholder="Search by country  ..." onChange={(e)=>setTerm(e.target.value)} />
     <button type="submit">Search</button>

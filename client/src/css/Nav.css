@@ -32,13 +32,13 @@
 }
 .divsearchbar{
     display: inline;
-    position: relative;
-    width: 400px;
+    height: 15px;
+    position: relative; 
 }
 .creacion{
     position: relative;
-    right: 50px;
-    bottom: 100px;
+    right: -600px;
+    bottom: 150px;
 }
 .fotoAc{
     position: relative;
@@ -46,6 +46,7 @@
     height: 125px;
 }
 .titles{
+    display: inline;
     color: rgb(15, 71, 66);
     width: 1000px;
     position: relative;
@@ -54,5 +55,6 @@
 }
 .formcreation{
     position: relative;
-    right: -120px;
+    right:120px;
+    top:-90px;
 }
