@@ -67,15 +67,16 @@ export function ActivitiesForm() {
   return (
     <header className="activities">
       <div className="act">
-      <h1>Create an Activity!</h1>
+      <h2>Create an Activity!</h2>
       <div>
       <form onSubmit={(i)=>handleSubmit(i)}>
       
-      <input  placeholder="Activity name..." name="name" value={state.name} onChange={handleInputChange}></input><br/>
+      <p className="titulos">ACTIVITY NAME</p>
+      <input className="actt"  placeholder="Activity name..." name="name" value={state.name} onChange={handleInputChange}></input><br/>
       {error.name && (<p className="error">{error.name}</p>)}
 
-      <label>Select Difficulty</label>
-            <select onChange={handleInputChange} name="dificulty"  >
+      <p className="tituloss">SELECT DIFFICULTY</p>
+            <select onChange={handleInputChange} name="dificulty" className="dif" >
                 <option value=""></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -85,12 +86,12 @@ export function ActivitiesForm() {
             </select><br/>
             {error.dificulty && (<p className="error">{error.dificulty}</p>)}
 
-
-      <input placeholder="Activity duration in hours" name="duration" value={state.duration} onChange={handleInputChange}></input><br/>
+      <p className="titulosss">DURATION IN HOURS</p>
+      <input className="diff" placeholder="Activity duration in hours" name="duration" value={state.duration} onChange={handleInputChange}></input><br/>
       {error.duration && (<p className="error">{error.duration}</p>)}
 
-      <label>Season</label>
-            <select onChange={handleInputChange} name="season">
+            <p className="titulossss">SEASON</p>
+            <select onChange={handleInputChange} name="season" className="difff">
                 <option value=""></option>
                 <option value="winter">winter</option>
                 <option value="summer">summer</option>
@@ -99,11 +100,9 @@ export function ActivitiesForm() {
             </select><br/>
             {error.season && (<p className="error">{error.season}</p>)}
 
-            <label>Select countries</label>
-
-      
-
-              <select onChange={handleChange} name="countries" multiple>
+              <br/>
+            <p className="titulosssss">SELECT COUNTRIES</p>   
+            <select onChange={handleChange} name="countries" multiple className="diffff">
               <option value=""></option>
             {everyCountry.map(i=>(
               <option value={i.name}>{i.name}</option>))}

@@ -1,60 +1,49 @@
 .navbar{
-    background-color: rgb(134, 134, 136);
+    background-color: rgb(184, 130, 86);
     border-radius: 8px;
-
+    height: 180px;
 }
 .fotohome{
-    position:relative;
-    left:-190px;
-    display: inline-flex;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 1px;
-    width: 40%;
     
+    position:relative;
+    left:-120px;
+    display: inline-flex;
+    /* padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 1px; */
+    width: 250px;
+    height: 150px;
+    top:10px;
 }
 .foto{
-    width: 40%;
+    
+    width: 230px;
     border-radius: 8px;
-}
-.searchbar{    
-    display: inline;
-    position:relative;
-    left: -320px;
-    bottom: 50px;
-    border-radius: 8px;
-    width: 400px;
-}
-.botonreset{
-    position: relative;
-    left: -300px;
-    bottom: 50px;
-}
-.divsearchbar{
-    display: inline;
-    height: 15px;
-    position: relative; 
 }
 .creacion{
+    
     position: relative;
-    right: -600px;
-    bottom: 150px;
+    right: -65px;
+    bottom: 60px;
 }
 .fotoAc{
+    
     position: relative;
     top:75px;
     height: 125px;
 }
 .titles{
+    
     display: inline;
     color: rgb(15, 71, 66);
     width: 1000px;
     position: relative;
     top:-100px;
-    left:-30px;
+    left:170px;
 }
 .formcreation{
+    
     position: relative;
-    right:120px;
-    top:-90px;
+    right:-220px;
+    top:-120px;
 }
