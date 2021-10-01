@@ -8,12 +8,12 @@ const {Country, Activity} = require("../db.js");//deberia funcionar
 
 async function getCountries() {//empezamos la funcion para hacer el pedido a la api. la vamos a hacer con axios.
     try {
-    // const response = await axios.get('../../countries.json');//el response ya es un json...el await es pq me tira una promesa
+    // const response = await axios.get('https://restcountries.com/rest/v2/all');//el response ya es un json...el await es pq me tira una promesa
     //     const countriesBD= response.data;//response.data pq nos tira un json en el data
     //     console.log(countriesBD)
         // var capital="no tiene capital"
         // var continent="no tiene continente"
-        const countriesArray= countries.map(i=>{//me esta devolviendo array con todos esos objetos
+        const countriesArray= countries.map(i=>{//me esta devolviendo array con todos esos objetos. estamos filtrando por lo que necesitamos nomas.
             
             // if(i.capital){
             //     capital=i.capital;             
@@ -34,7 +34,7 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
             }
         })
         console.log(countriesArray.length)
-        for (const i of countriesArray) {//for of se usa porque no se lleva con await. aqui estamos poblando la base de datos.
+        for (const i of countriesArray) {//for of se usa porque no se lleva con await. aqui estamos poblando la base de datos. 
             
             const countries = await Country.create(i)
             
@@ -47,12 +47,12 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
 }
 
 router.get("/", async function(req,res){//aqui la barra esta sin el countries porque ya lo estoy poniendo en el index en el router.use
-    const {name}=req.query;//estamos trayendo el name por query.
+    const {name}=req.query;//estamos trayendo el name por query. seimpre vienen despues del ?
     
     getCountries();//instanciamos la funcion de arriba para que se corra cuando entre el get.
 
-    if(!name){
-        const simplifiedCountry= await Country.findAll({//esta es la funcion promesa que nos sirve para filtrar solo los atributos que necesitemos y poder usarlos para enviarlos por el res.json
+    if(!name){//si no hay un nombre por query, traemos todos los paises. de la base de datos.
+        const simplifiedCountry= await Country.findAll({//esta es la funcion promesa que nos sirve para filtrar solo los atributos que necesitemos y poder usarlos para enviarlos por el res.json. los sacamos de la bd
             attributes: ['flag', 'name','continent','ID','population'],
             include:{model:Activity}
         }
@@ -60,8 +60,8 @@ router.get("/", async function(req,res){//aqui la barra esta sin el countries po
     
         res.json(simplifiedCountry);//aqui enviamos por json los atributos requeridos.
         
-        //todas las condiciones que me pidan hacer en la ruta countries?name...
-    } else{
+        
+    } else{//todas las condiciones que me pidan hacer en la ruta countries?name...
         const matchingCountry= await Country.findAll({
             where:{
                 name:{[Op.iLike]:`%${name}%`}
@@ -74,7 +74,7 @@ router.get("/", async function(req,res){//aqui la barra esta sin el countries po
     
 })
 
-router.get("/:idPais", async function(req,res){//estamos haciendo el endpoint para esta ruta.
+router.get("/:idPais", async function(req,res){//estamos haciendo el endpoint para esta ruta. por path parametros
     const {idPais}=req.params;//estamos trayendo el id por parametros
     //getCountries();//instanciamos la funcion de arriba para que se corra cuando entre el get.
 

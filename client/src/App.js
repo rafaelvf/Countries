@@ -3,7 +3,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import Nav from './components/Nav';
-import Paginado from "./components/Paginado";
+
 import activitiesForm from './components/Activities';
 import CountryDetail from './components/CountryDetail';
 import Container from "./components/Container";

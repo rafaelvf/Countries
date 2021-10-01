@@ -14,7 +14,7 @@ module.exports = (sequelize) => {//estoy exportando una funcion
       allowNull: false,
     },
     flag:{
-      type:DataTypes.STRING,//me queda la duda
+      type:DataTypes.STRING,//La flag viene como string un url
       allowNull:false,
     },
     continent:{

@@ -7,7 +7,7 @@ import "../css/CountryDetail.css";
 export function CountryDetail(props) {
   const {countryDetail}=useSelector((state)=>state.allCountries)
   const {ID}=useParams();
-  useEffect(()=>{props.getCountryDetail(ID)},[])
+  useEffect(()=>{props.getCountryDetail(ID)},[ID,props])
   
   
   return countryDetail && Object.keys(countryDetail).length ? (

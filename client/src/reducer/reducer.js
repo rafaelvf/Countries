@@ -3,7 +3,8 @@ import { ActionTypes } from "../constants/action-types"
 const initialState ={
     countries:[],
     everyCountry:[],
-    countryDetail:{}
+    countryDetail:{},
+    activities:[]
 }
 
 export const reducer = (state=initialState,action)=>{
@@ -13,6 +14,11 @@ export const reducer = (state=initialState,action)=>{
                 countries:action.payload,//eesta la que va cambiando
                 everyCountry:action.payload//esta es la que no tengo que modificar
             } 
+        case ActionTypes.ALL_ACTIVITIES:
+            return{...state,
+                    activities:action.payload
+            }
+            
         case ActionTypes.COUNTRY_DETAILS:
             return{...state,
                     countries:action.payload
@@ -47,20 +53,23 @@ export const reducer = (state=initialState,action)=>{
                         countryDetail:action.payload
                     } 
         case ActionTypes.GET_ACTIVITY:
-            const activityFilter = [];
-            state.everyCountry.map(i=>{
-                if(i.activities){
-                    for(const e of i.activities){
-                        if(e.name===action.payload){
-                            activityFilter.push(i)
-                            return activityFilter
-                        }
-                    }
-                }}
-                )
-                return{...state,
-                        countries:activityFilter
-                        }            
+            // const activityFilter = [];
+            // state.everyCountry.map(i=>{
+            //     if(i.activities){
+            //         for(const e of i.activities){
+            //             if(e.name===action.payload){
+            //                 activityFilter.push(i)
+                            
+            //             }
+            //         }
+            //     }}
+            //     )
+
+            return{
+                ...state,
+                countries:state.everyCountry.filter((c) => { return c.activities.some((a) => a.name === action.payload) })
+            }
+                    
         default:
             return state;
     }

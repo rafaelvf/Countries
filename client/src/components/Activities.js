@@ -4,8 +4,8 @@ import axios from "axios";
 import "../css/Activities.css";
 
 export function ActivitiesForm() {
-  const {everyCountry}=useSelector((state)=>state.allCountries)
-  const [state,setState]=useState({name:"",dificulty:"",duration:"",season:"",countries:[]})
+  const {everyCountry}=useSelector((state)=>state.allCountries)//me traigo el estado general
+  const [state,setState]=useState({name:"",dificulty:"",duration:"",season:"",countries:[]})//creo estado por las cosas que necesito
   const [error,setError]=useState({name:"",dificulty:"",duration:"",season:"",countries:[]})
 
   function validation(event){
@@ -64,6 +64,12 @@ export function ActivitiesForm() {
     }
   }
 
+  function handleErase(event){
+    event.preventDefault();
+    setState({...state,
+      countries:[]})
+  }
+
   return (
     <header className="activities">
       <div className="act">
@@ -107,11 +113,16 @@ export function ActivitiesForm() {
             {everyCountry.map(i=>(
               <option value={i.name}>{i.name}</option>))}
               </select><br/>
+
+              <p className="titulosssss">COUNTRIES SELECTED</p> 
+              {state.countries.map(i=>
+              <p>{i}</p>
+              )}
               
             {/* <p>
             Countries selected:{arraySelected.map(i=>arraySelected[i])}  
             </p> */}
-
+      <button onClick={handleErase}>Erase countries</button>
       <button className="activityButton" type="submit">Create</button>
       </form>
       </div>   

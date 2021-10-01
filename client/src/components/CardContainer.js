@@ -8,7 +8,7 @@ import "../css/CardContainer.css"
 
 
 export function CardContainer(props) {//props = {country:state.country[],getcountries:function}
-  useEffect(()=>{props.getcountries()},[])//con useEffect estamos cargando el estado porque set esta ejecunta elgetcountries que tiene adentro el dispatch la action getall
+  useEffect(()=>{props.getcountries()},[props])//con useEffect estamos cargando el estado porque set esta ejecunta elgetcountries que tiene adentro el dispatch la action getall
   
   const {countries}=useSelector((state)=>state.allCountries)
 
@@ -25,6 +25,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
   const currentPosts=countries.slice(indexOfFirstPost,indexOfLastPost)
 
   const paginate =(pageNumber)=>setCurrentPage(pageNumber)
+  console.log("conosloeee log",paginate)
   const handleNextbtn=()=>{
     setCurrentPage(currentPage+1);
 
@@ -43,7 +44,9 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
     }
   }
 
-  return currentPosts && currentPosts.length?(
+  console.log("current post"+ currentPosts)//9 cartas
+
+  return currentPosts && currentPosts.length ?(
     <div>
     {/* {
     <Paginado postsPerPage={postsPerPage} totalPosts={countries.length} paginate={paginate} minPageNumberLimit={minPageNumberLimit}  maxPageNumberLimit={maxPageNumberLimit}
@@ -54,7 +57,7 @@ export function CardContainer(props) {//props = {country:state.country[],getcoun
     <div className="cardcontainer">
     
   { currentPosts.map(i=>{
-
+    console.log("f"+currentPosts)
     
       return (
         <div key={i.ID} className="j"> {/* para que cada card tenga una id en el navegador, y no moeleste la consola del navegador */}

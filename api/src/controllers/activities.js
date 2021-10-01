@@ -6,7 +6,7 @@ const {Sequelize}=require("sequelize")
 const {Country, Activity} = require("../db.js");//deberia funcionar
 
 router.post("/", async function(req,res){
-    const {ID, name, dificulty, duration, season,countries } = req.body;
+    const {ID, name, dificulty, duration, season,countries } = req.body;//por body me va a llegar estas porpiedades. que vienen del form
     console.log(req.body)
 
     const [nuevaActividad,created]= await Activity.findOrCreate({
@@ -34,6 +34,15 @@ router.post("/", async function(req,res){
     res.json(nuevaActividad);
 
 
+})
+
+router.get("/add", async function(req,res){
+
+    const justactivities= await Activity.findAll({
+        attributes:["name"]
+    })
+
+        res.json(justactivities)
 })
 
 
