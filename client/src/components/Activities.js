@@ -114,7 +114,7 @@ export function ActivitiesForm() {
               <option value={i.name}>{i.name}</option>))}
               </select><br/>
 
-              <p className="titulosssss">COUNTRIES SELECTED</p> 
+              <p className="titulossssss">COUNTRIES SELECTED</p> 
               {state.countries.map(i=>
               <p>{i}</p>
               )}
