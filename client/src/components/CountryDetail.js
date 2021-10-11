@@ -12,6 +12,7 @@ export function CountryDetail(props) {
   
   return countryDetail && Object.keys(countryDetail).length ? (
     <div className="carddetail">
+      <div className="detail">
             <img src={countryDetail.flag} alt={`Flag of ${countryDetail.country}`} className="Cardimage" />
             <br/>
             <h2>{countryDetail.name}</h2>
@@ -24,6 +25,7 @@ export function CountryDetail(props) {
             <p>Population: {countryDetail.population}</p>
             
             {countryDetail.activities?<p> {countryDetail.activities.map(i=>"Activity:"+i.name+" " + "Duration:"+i.duration+" "+"Difficulty:"+i.dificulty+" "+"Season:"+i.season+" |||| ")}</p>:null}
+            </div>
     </div>
   ):<p>The country does not exist</p>
   

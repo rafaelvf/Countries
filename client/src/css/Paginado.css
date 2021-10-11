@@ -8,7 +8,7 @@
     border-radius: 2px;
     border: 1px solid rgb(43, 41, 41);
     cursor: pointer;
-    background-color: turquoise;
+    background-color: rgb(168, 168, 168);
 }
 .paginado{
     display:inline-flex;

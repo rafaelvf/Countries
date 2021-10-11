@@ -1,22 +1,23 @@
 .divsearchbar{
     
     display: inline;
-    height: 15px;
+    height: 25px;
     position: relative; 
+    border-radius: 15px;
 }
 .searchbar{    
     
     display: inline;
     position:relative;
-    left: -200px;
+    left: -320px;
     bottom: 50px;
-    border-radius: 5px;
+    border-radius: 15px;
     width: 400px;
 }
 
 .botonreset{
     
     position: relative;
-    left: -120px;
+    left: -260px;
     bottom: 50px;
 }

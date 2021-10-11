@@ -1,11 +1,17 @@
 .activities{
-    background-color: rgb(150, 148, 147);
-    height: 500px;
+    /* background-color: #41B3A3; */
+    background-color: black;
+    height: 580px;
+    background-image: url("../img/earth.gif");
+    /* opacity: 0.9; */
+    background-repeat: no-repeat;
+    background-position:150px;
 }
 .act{
     border-style: solid;
-    border-width: 10px;
-    background-color: turquoise;
+    border-width: 5px;
+    border-radius: 10px;
+    background-color: rgb(170, 197, 194);
     width: 750px;
     height: 480px;
     position: relative;

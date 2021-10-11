@@ -2,23 +2,23 @@ const router = require('express').Router();
 const axios = require("axios");
 const {Sequelize}=require("sequelize")
 const Op= Sequelize.Op
-const countries = require("../../countries.json")
+// const countries = require("../../countries.json")
 const {Country, Activity} = require("../db.js");//deberia funcionar
 
 
 async function getCountries() {//empezamos la funcion para hacer el pedido a la api. la vamos a hacer con axios.
     try {
-    // const response = await axios.get('https://restcountries.com/rest/v2/all');//el response ya es un json...el await es pq me tira una promesa
-    //     const countriesBD= response.data;//response.data pq nos tira un json en el data
-    //     console.log(countriesBD)
-        // var capital="no tiene capital"
+    const response = await axios.get('https://restcountries.com/v2/all');//el response ya es un json...el await es pq me tira una promesa
+        const countriesBD= response.data;//response.data pq nos tira un json en el data
+        //console.log(countriesBD)
+        var capital="no tiene capital"
         // var continent="no tiene continente"
-        const countriesArray= countries.map(i=>{//me esta devolviendo array con todos esos objetos. estamos filtrando por lo que necesitamos nomas.
+        const countriesArray= countriesBD.map(i=>{//me esta devolviendo array con todos esos objetos. estamos filtrando por lo que necesitamos nomas.
             
-            // if(i.capital){
-            //     capital=i.capital;             
+            if(i.capital){
+                capital=i.capital;             
 
-            // } 
+            } 
             // else if(i.continent){
             //     continent=i.continent;
             // }
@@ -27,18 +27,19 @@ async function getCountries() {//empezamos la funcion para hacer el pedido a la 
             name:i.name,
             flag:i.flag,
             continent:i.region,
-            capital:i.capital,
+            capital:capital,
             subregion:i.subregion,
             area:i.area,
             population:i.population
             }
         })
-        console.log(countriesArray.length)
+        // console.log(countriesArray.length)
+        //console.log(countriesArray)
         for (const i of countriesArray) {//for of se usa porque no se lleva con await. aqui estamos poblando la base de datos. 
             
             const countries = await Country.create(i)
             
-            // console.log(countries.dataValues)
+            // console.log(countries)
         }
             
         } catch (error) {
@@ -64,7 +65,7 @@ router.get("/", async function(req,res){//aqui la barra esta sin el countries po
     } else{//todas las condiciones que me pidan hacer en la ruta countries?name...
         const matchingCountry= await Country.findAll({
             where:{
-                name:{[Op.iLike]:`%${name}%`}
+                name:{[Op.iLike]:`%${name}%`}//para que vaya coincidiendo
             }
 
         }      

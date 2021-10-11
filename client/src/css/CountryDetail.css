@@ -1,6 +1,24 @@
 .carddetail{
-    background-color: rgb(196, 193, 193);
+    /* background-color: rgb(196, 193, 193); */
+     background-color: black; 
+    height: 700px;
+    background-image: url("../img/earth.gif");
+    /* opacity: 0.9; */
+    background-repeat: no-repeat;
+    background-position:150px;
 }
 .Cardimage{
-    width: 25%;
+    padding-top: 5px;
+    width: 35%;
+}
+.detail{
+    background-color: rgba(253, 241, 241, 0.747);
+    color: rgb(10, 10, 10);
+    border: solid;
+    border-radius: 10px;
+    width: 500px;
+    height: 450px;
+    position: relative;
+    left:500px;
+    top:50px;
 }

@@ -12,7 +12,7 @@ export function Paginado({
   handlePrevbtn,
   currentPage,
 }) {
-  const pageNumbers = [];
+  const pageNumbers = [];//aqui van air los numeros
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -22,7 +22,7 @@ export function Paginado({
     <div className="paginado">
       <button
         onClick={handlePrevbtn}
-        disabled={currentPage === pageNumbers[0] ? true : false}
+        disabled={currentPage === pageNumbers[0] ? true : false}//para deshabilitar el boton de atras si no hay mas paginas antes
       >
         Prev
       </button>

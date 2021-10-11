@@ -1,7 +1,10 @@
 .cardcontainer{
     display:flex;
     flex-wrap: wrap;
-
+    background-image: url("../img/earth.gif");
+    /* opacity: 0.9; */
+    background-repeat: no-repeat;
+    background-position:750px;
     
 }
 .j{
